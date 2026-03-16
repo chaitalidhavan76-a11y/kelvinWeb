@@ -39,9 +39,13 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
     e.preventDefault();
     setSubmitStatus({ loading: true, success: false, error: null });
 
+    // Set a timer to show "Server is waking up" message if it takes too long (Render cold start)
+    const wakeupTimer = setTimeout(() => {
+      setSubmitStatus(prev => ({ ...prev, loading: true, info: 'Server is starting up, this might take 30-60 seconds...' }));
+    }, 3000);
+
     try {
-      // Logic for sending email via Node.js backend (server.js)
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://kelvinweb.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,14 +53,18 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
         body: JSON.stringify(formData),
       });
 
+      clearTimeout(wakeupTimer);
+
       if (response.ok) {
         setSubmitStatus({ loading: false, success: true, error: null });
         setTimeout(() => onClose(), 2000);
       } else {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to send email');
+        throw new Error(errorData.error || errorData.details || 'Failed to send email');
       }
     } catch (err) {
+      clearTimeout(wakeupTimer);
+      console.error('Frontend Error during email submission:', err);
       setSubmitStatus({ loading: false, success: false, error: err.message });
     }
   };
@@ -67,66 +75,67 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
     <div className="contact-popup-overlay" onClick={onClose}>
       <div className="contact-popup-container" onClick={e => e.stopPropagation()}>
         <button className="close-popup-btn" onClick={onClose}>×</button>
-        
+
         <h2 className="contact-popup-title">Contact Us</h2>
-        
+
         <form className="contact-popup-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Enter name" 
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter name"
               className="popup-input"
               value={formData.name}
               onChange={handleChange}
               required
             />
           </div>
-          
+
           <div className="form-group">
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Email ID" 
+            <input
+              type="email"
+              name="email"
+              placeholder="Email ID"
               className="popup-input"
               value={formData.email}
               onChange={handleChange}
               required
             />
           </div>
-          
+
           <div className="form-group">
-            <input 
-              type="tel" 
-              name="contactNo" 
-              placeholder="Contact No." 
+            <input
+              type="tel"
+              name="contactNo"
+              placeholder="Contact No."
               className="popup-input"
               value={formData.contactNo}
               onChange={handleChange}
               required
             />
           </div>
-          
+
           <div className="form-group">
-            <textarea 
-              name="message" 
-              placeholder="Type Message" 
+            <textarea
+              name="message"
+              placeholder="Type Message"
               className="popup-textarea"
               value={formData.message}
               onChange={handleChange}
               required
             ></textarea>
           </div>
-          
+
           <div className="popup-submit-wrapper">
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className={`popup-submit-btn ${submitStatus.loading ? 'loading' : ''}`}
               disabled={submitStatus.loading || submitStatus.success}
             >
               {submitStatus.loading ? 'Sending...' : submitStatus.success ? 'Sent!' : 'Submit'}
             </button>
           </div>
+          {submitStatus.info && submitStatus.loading && <p className="submit-info-msg" style={{ color: '#666', fontSize: '0.8rem', textAlign: 'center', marginTop: '10px' }}>{submitStatus.info}</p>}
           {submitStatus.success && <p className="submit-success-msg">Message sent successfully!</p>}
           {submitStatus.error && <p className="submit-error-msg">{submitStatus.error}</p>}
         </form>
