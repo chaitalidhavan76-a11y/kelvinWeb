@@ -1,0 +1,392 @@
+.hero {
+  padding: 50px 0 110px;
+  text-align: left;
+  position: relative;
+}
+
+.hero.services-view {
+  padding-bottom: 100px;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  gap: 40px;
+}
+
+.hero-text-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-image-content {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-principal-img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 40px;
+  /* Match screenshot rounding */
+  object-fit: cover;
+  background-color: #e2e1e3;
+  /* White card background */
+  padding: 12px;
+  /* White frame effect */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  /* Subtle card shadow */
+  transition: var(--transition);
+}
+
+.hero-title {
+  line-height: 1.25;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+  font-family: var(--serif-font);
+  font-weight: 400;
+  letter-spacing: -1.5px;
+}
+
+.title-top {
+  font-size: 72px;
+}
+
+.title-bottom {
+  font-size: 80px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 50px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.search-container {
+  display: flex;
+}
+
+.search-box {
+  display: flex;
+  background: rgba(255, 255, 255, 0.45);
+  /* Lighter, more transparent */
+  padding: 8px 8px 8px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  /* Very faint border */
+  width: 100%;
+  max-width: 500px;
+  align-items: center;
+}
+
+.services-view .search-box {
+  background: #fff;
+  padding: 8px;
+  max-width: 550px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 25px;
+  outline: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+.search-box input::placeholder {
+  color: #888;
+}
+
+.btn-connect {
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.services-view .btn-connect {
+  background-color: #222;
+  padding: 14px 28px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.btn-connect:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+}
+
+.hero-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: left;
+  margin-top: 40px;
+}
+
+.feature-col {
+  padding: 0 10px;
+}
+
+.feature-title {
+  font-size: 32px;
+  font-family: var(--serif-font);
+  color: #333;
+  font-weight: 400;
+}
+
+.feature-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #777;
+  font-weight: 400;
+}
+
+.services-mobile-search-standalone {
+  display: none;
+}
+
+.hero.services-view {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../assets/bannner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Mockup Overlay: Transparent top, smooth white fade at bottom */
+.hero.services-view::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0.8) 85%,
+      rgba(255, 255, 255, 1) 100%);
+  z-index: 1;
+}
+
+.hero.services-view .hero-content {
+  width: 100%;
+  max-width: 1200px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding-top: 120px;
+  z-index: 2;
+}
+
+.hero.services-view .hero-text-content {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero.services-view .hero-title,
+.hero.services-view .hero-subtitle,
+.hero.services-view .hero-image-content {
+  display: none;
+}
+
+.hero.services-view .search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 260px;
+}
+
+.hero.services-view .search-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  padding: 8px;
+  border-radius: 100px;
+}
+
+/* features sitting on the white fade, as per mockup */
+.hero.services-view .hero-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  width: 100%;
+  padding: 40px 0;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  border: none;
+  margin-top: 0;
+}
+
+.hero.services-view .feature-col {
+  text-align: left;
+}
+
+.hero.services-view .feature-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.hero.services-view .feature-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555;
+  font-weight: 400;
+  max-width: 320px;
+}
+
+@media (max-width: 992px) {
+  .hero {
+    padding: 30px 0 60px;
+    text-align: center;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .hero-text-content {
+    max-width: 100%;
+    order: 2;
+  }
+
+  .hero-image-content {
+    order: 1;
+    justify-content: center;
+  }
+
+  .hero-principal-img {
+    max-width: 100%;
+    border-radius: 25px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    margin-bottom: 30px;
+
+    br {
+      display: none;
+    }
+  }
+
+  .search-container {
+    justify-content: center;
+  }
+
+  .search-box {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .search-box input {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .btn-connect {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Services view specific mobile fixes - Match mockup SS */
+  .hero.services-view {
+    min-height: 70vh;
+    /* Shorter for mobile */
+  }
+
+  .hero.services-view .hero-content {
+    padding-top: 40px;
+  }
+
+  /* Services view specific mobile fixes - Match mockup SS */
+  .hero.services-view .search-container {
+    display: none !important;
+    /* Hide overlay search box on mobile */
+  }
+
+  .services-mobile-search-standalone {
+    display: block;
+    background: #ffffff;
+    padding: 10px 0 40px;
+    margin-top: -30px;
+    /* Pull up slightly to overlap fade */
+    position: relative;
+    z-index: 20;
+  }
+
+  /* Ensure the background image transition is smooth */
+  .hero.services-view::before {
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.9) 80%,
+        rgba(255, 255, 255, 1) 100%);
+  }
+
+  .hero.services-view .hero-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 40px 10px 0;
+    margin-top: 100px;
+    /* Push down to clear technician's head */
+  }
+
+  .hero.services-view .feature-col {
+    text-align: left;
+    display: block;
+  }
+
+  .hero.services-view .feature-title {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+
+  .hero.services-view .feature-desc {
+    font-size: 10px;
+    /* Smaller text to fit side-by-side */
+    line-height: 1.4;
+    max-width: 100%;
+  }
+}

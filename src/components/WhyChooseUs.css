@@ -1,0 +1,264 @@
+.why-choose-us {
+  padding: 100px 0 100px;
+  background-color: #ffffff;
+}
+
+.why-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 42px;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.why-content {
+  position: relative;
+  margin-top: 60px;
+}
+
+.dotted-curve {
+  width: 100%;
+  max-width: 1200px;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.8;
+  padding: 0 40px;
+  padding-bottom: 55px;
+}
+
+.why-main-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: -30px;
+  /* Pull up to overlap with curve if needed */
+  padding: 0 80px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-bottom: 40px;
+}
+
+.feature-column.left {
+  text-align: left;
+  padding-right: 20px;
+}
+
+.feature-column.right {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #4a4a4a;
+}
+
+.feature-text {
+  font-size: 15px;
+  color: #8c8c8c;
+  line-height: 1.6;
+}
+
+.feature-highlight {
+  font-weight: 700;
+  color: #5a5a5a;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.center-visual {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin: 0 20px;
+  margin-bottom: 40px
+}
+
+.visual-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.main-team-image {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 460px;
+}
+
+/* Explore Section Styling */
+.explore-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 40px;
+  position: relative;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 40px;
+}
+
+.line-wrapper {
+  flex: 1;
+  display: flex;
+  height: 60px;
+  /* height of L drop */
+}
+
+.connector-line {
+  border-bottom: 2px solid #a0a0a0;
+  width: 100%;
+  height: 100%;
+}
+
+.line-left .connector-line {
+  border-left: 2px solid #a0a0a0;
+  border-bottom-left-radius: 10px;
+}
+
+.line-right .connector-line {
+  border-right: 2px solid #a0a0a0;
+  border-bottom-right-radius: 10px;
+}
+
+.explore-btn-container {
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  margin-top: -30px;
+  /* Center circle on the line */
+}
+
+.explore-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px dashed #7a7a7a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  color: #333;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.explore-circle:hover {
+  border-color: #333;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.explore-text {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.explore-arrow {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.explore-circle:hover .explore-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 992px) {
+  .why-choose-us {
+    padding: 60px 20px;
+  }
+
+  .why-main-layout {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0;
+  }
+
+  .feature-column {
+    padding: 0;
+    gap: 30px;
+  }
+
+  .feature-column.left,
+  .feature-column.right {
+    padding: 0;
+    text-align: center;
+  }
+
+  .center-visual {
+    margin: -60px 0;
+    order: -1;
+    /* Move image to top of the content area on mobile */
+  }
+
+  .feature-title {
+    font-size: 20px;
+  }
+
+  .feature-text {
+    font-size: 14px;
+  }
+
+  .dotted-curve {
+    display: none;
+  }
+
+  .explore-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+    margin-top: 40px;
+  }
+
+  .line-wrapper {
+    display: none;
+    /* Hide connector lines on mobile */
+  }
+
+  .explore-btn-container {
+    padding: 0;
+    margin-top: 0;
+  }
+
+  .explore-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .explore-text {
+    font-size: 14px;
+  }
+}

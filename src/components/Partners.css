@@ -1,0 +1,135 @@
+.partners {
+  margin-top: -60px; /* Overlap with hero wrapper */
+  padding-bottom: 80px;
+  position: relative;
+  z-index: 10;
+}
+
+.partners-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 25px;
+  background: #f2f2f2;
+  padding: 42px 0; /* Increased vertical padding */
+  border-radius: 24px;
+  margin: 0 auto;
+  max-width: 1235px;
+  box-shadow: inset 0 0 15px 0 rgba(215, 215, 215, 0.6);
+}
+
+.partner-logo-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 140px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.partner-logo-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.logo-img-wrapper {
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-img {
+  max-width: 100%;
+  max-height: 40px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+/* Hover state: move logo up cleaner and show color */
+.partner-logo-item:hover .partner-img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.partner-logo-item:hover .logo-img-wrapper {
+  transform: translateY(-20px); /* Slightly less movement */
+}
+
+.hover-card-content {
+  position: absolute;
+  top: 35px; /* Moved up closer to logo */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 160px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.partner-logo-item:hover .hover-card-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(5px);
+}
+
+.partner-desc {
+  font-size: 10.5px; /* Slightly smaller for better fit */
+  font-weight: 500;
+  color: #444; /* Slightly softer than #333 */
+  line-height: 1.35;
+  display: block;
+}
+
+/* Specific Logo Helper Sizes */
+.burger-king .partner-img { height: 45px; }
+.croma .partner-img { height: 28px; }
+.mcdonalds .partner-img { height: 40px; }
+.abp .partner-img { height: 60px; }
+.tivoli .partner-img { height: 45px; }
+.telegraph .partner-img { height: 20px; }
+.westside .partner-img { height: 22px; }
+
+@media (max-width: 992px) {
+  .partners {
+    margin-top: -30px;
+    padding: 0 15px 40px;
+  }
+
+  .partners-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 10px;
+    border-radius: 16px;
+  }
+
+  .partner-logo-item {
+    width: 100px;
+    height: 50px;
+  }
+
+  .partner-img {
+    max-height: 35px;
+    opacity: 1; 
+    filter: none;
+  }
+
+  .hover-card-content {
+    display: none;
+  }
+}
+
+
