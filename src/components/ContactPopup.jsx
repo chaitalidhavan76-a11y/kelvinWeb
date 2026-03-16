@@ -45,7 +45,7 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
     }, 3000);
 
     try {
-      const response = await fetch('https://kelvinweb.onrender.com/api/contact', {
+      const response = await fetch('https://kelvinweb-5rsj.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,7 +60,8 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
         setTimeout(() => onClose(), 2000);
       } else {
         const errorData = await response.json();
-        throw new Error(errorData.error || errorData.details || 'Failed to send email');
+        const detailedError = errorData.details ? `${errorData.error}: ${errorData.details}` : (errorData.error || 'Failed to send email');
+        throw new Error(detailedError);
       }
     } catch (err) {
       clearTimeout(wakeupTimer);

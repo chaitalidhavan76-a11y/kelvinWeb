@@ -29,6 +29,46 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Dedicated test route that returns full error details
+app.get('/test-email', async (req, res) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // true for 465, false for 587
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    console.log('Testing SMTP connection...');
+    await transporter.verify();
+    
+    console.log('Sending diagnostic email...');
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.RECEIVER_EMAIL || process.env.EMAIL_USER,
+      subject: 'Diagnostic Test',
+      text: 'SMTP connection is working correctly.'
+    });
+
+    res.json({ status: 'success', message: 'SMTP is working!' });
+  } catch (error) {
+    console.error('Diagnostic Failure:', error);
+    res.status(500).json({ 
+      status: 'failed', 
+      error: error.message,
+      code: error.code,
+      command: error.command,
+      response: error.response
+    });
+  }
+});
+
 app.post('/api/contact', async (req, res) => {
   const { name, email, contactNo, message } = req.body;
 
@@ -45,11 +85,16 @@ app.post('/api/contact', async (req, res) => {
     }
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // true for 465, false for 587
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      tls: {
+        rejectUnauthorized: false
+      }
     });
 
     const mailOptions = {
