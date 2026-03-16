@@ -31,6 +31,17 @@ app.get('/health', (req, res) => {
   });
 });
 
+app.get('/check-dns', async (req, res) => {
+  try {
+    const ipv4 = await dns.promises.lookup('smtp.gmail.com', { family: 4 });
+    const ipv6 = await dns.promises.lookup('smtp.gmail.com', { family: 6 }).catch(err => ({ error: err.message }));
+    const all = await dns.promises.lookup('smtp.gmail.com', { all: true });
+    res.json({ ipv4, ipv6, all });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
@@ -39,7 +50,10 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
-  family: 4, // ⭐ FORCES IPv4 (Fixes ENETUNREACH on Render)
+  family: 4, 
+  lookup: (hostname, options, callback) => {
+    return dns.lookup(hostname, { family: 4 }, callback);
+  },
   connectionTimeout: 20000,
   greetingTimeout: 20000,
   socketTimeout: 20000
