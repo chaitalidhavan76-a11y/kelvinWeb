@@ -45,7 +45,7 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
     }, 3000);
 
     try {
-      const response = await fetch('https://kelvinweb-5rsj.onrender.com/api/contact', {
+      const response = await fetch('https://kelvinweb-92t8.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
