@@ -294,13 +294,18 @@
   }
 
   .hero-title {
-    font-size: 42px;
-    margin-bottom: 20px;
+    font-size: 36px; /* Reduced from 42px */
+    margin-bottom: 15px;
+    line-height: 1.1;
+  }
+
+  .title-top, .title-bottom {
+    font-size: 36px;
   }
 
   .hero-subtitle {
-    font-size: 16px;
-    margin-bottom: 30px;
+    font-size: 15px;
+    margin-bottom: 25px;
 
     br {
       display: none;

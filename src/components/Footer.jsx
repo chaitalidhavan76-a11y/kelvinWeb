@@ -4,17 +4,20 @@ import logoImg from '../assets/logo.png';
 import { LuArrowUp } from 'react-icons/lu';
 
 const Footer = ({ setActivePage, openServiceDetails }) => {
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleNavClick = (page, e) => {
     e.preventDefault();
+
     if (page === 'services') {
       openServiceDetails(null);
     } else {
       setActivePage(page);
     }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -44,6 +47,8 @@ const Footer = ({ setActivePage, openServiceDetails }) => {
             <nav className="footer-nav-col">
               <a href="#" className="footer-nav-link" onClick={(e) => handleNavClick('home', e)}>Home</a>
             </nav>
+            {/* Empty for spacing in row 2 desktop */}
+            <div className="footer-info-block desktop-spacer"></div>
           </div>
 
           {/* Column 3: Services & Contact */}
@@ -51,11 +56,11 @@ const Footer = ({ setActivePage, openServiceDetails }) => {
             <nav className="footer-nav-col">
               <a href="#" className="footer-nav-link" onClick={(e) => handleNavClick('services', e)}>Services</a>
             </nav>
-            <div className="footer-info-block">
+            <div className="footer-info-block footer-contact">
               <span className="contact-label-gray">Contact us</span>
               <div className="contact-numbers">
-                <p>9810188126, 9718057230,</p>
-                <p>45101800</p>
+                <p>9810188126, 9718057230</p>
+                <p>011-27351701 / 45101800</p>
               </div>
               <div className="contact-emails">
                 <p>kelvinengineers@gmail.com</p>
@@ -71,11 +76,10 @@ const Footer = ({ setActivePage, openServiceDetails }) => {
             <nav className="footer-nav-col">
               <a href="#" className="footer-nav-link" onClick={(e) => handleNavClick('about', e)}>About Us</a>
             </nav>
-            <div className="footer-info-block">
+            <div className="footer-info-block footer-address">
               <p className="address-text-footer">
-                Aggarwal tower, H-6/104, Netaji<br />
-                Subhash Place, Pitampura,<br />
-                Delhi, 110034
+                Aggarwal tower, H-6/104, Netaji Subhash Place,<br />
+                Pitampura, Delhi 110034
               </p>
             </div>
           </div>
@@ -90,4 +94,3 @@ const Footer = ({ setActivePage, openServiceDetails }) => {
 };
 
 export default Footer;
-

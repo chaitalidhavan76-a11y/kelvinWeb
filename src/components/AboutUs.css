@@ -207,7 +207,8 @@
   display: flex;
   align-items: center;
   gap: 120px;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
+  /* Reduced to avoid large gap */
   position: relative;
   z-index: 2;
 }
@@ -269,32 +270,29 @@
 }
 
 .curved-decoration-bottom {
-  padding: 0 40px 100px;
-  /* Added significant bottom padding for space */
+  padding: 0 40px 80px;
+  /* Balanced bottom padding */
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 80px;
-  /* Increased margin from top section */
+  margin-top: 60px;
+  /* Slightly reduced margin */
 }
 
 .bottom-line-asset {
   width: 100%;
   max-width: 1200px;
   height: auto;
-  opacity: 0.6;
-  /* Slightly more subtle */
+  opacity: 0.5;
   position: absolute;
-  bottom: -100px;
-  /* Stick to the bottom of the padded container */
+  bottom: -50px;
+  /* Position at the very bottom of the padded container */
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
-  margin-bottom: 100px;
-  margin-top: 80px;
 }
 
 /* Removed redundant block at the end */
@@ -318,8 +316,18 @@
     padding: 0 20px;
   }
 
-  .curved-image-wrapper {
-    max-width: 100%;
+  .curved-decoration-bottom {
+    padding: 0 20px 80px; /* Significant padding to clear line */
+    margin-bottom: 20px;
+    overflow: visible;
+  }
+
+  .bottom-line-asset {
+    bottom: 0px; 
+    width: 200%; /* More pronounced curve on small screens */
+    opacity: 0.35;
+    max-width: none;
+    pointer-events: none;
   }
 }
 
