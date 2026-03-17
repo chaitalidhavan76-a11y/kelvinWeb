@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import './ContactPopup.css';
 
 const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
@@ -8,6 +9,11 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
     contactNo: '',
     message: ''
   });
+
+  // EmailJS Configuration - REPLACE THESE WITH YOUR ACTUAL IDS
+  const SERVICE_ID = 'service_s8we57r';
+  const TEMPLATE_ID = 'template_ewykrrf'; // Updated with your Template ID
+  const PUBLIC_KEY = '6M4-dVbhFQRteO88d';   // Your Public Key
 
   useEffect(() => {
     if (isOpen) {
@@ -39,34 +45,35 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
     e.preventDefault();
     setSubmitStatus({ loading: true, success: false, error: null });
 
-    // Set a timer to show "Server is waking up" message if it takes too long (Render cold start)
-    const wakeupTimer = setTimeout(() => {
-      setSubmitStatus(prev => ({ ...prev, loading: true, info: 'Server is starting up, this might take 30-60 seconds...' }));
-    }, 3000);
-
     try {
-      const response = await fetch('https://kelvinweb-92t8.onrender.com/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        contact_no: formData.contactNo,
+        message: formData.message,
+        to_name: 'Kelvin',
+      };
 
-      clearTimeout(wakeupTimer);
+      const response = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY
+      );
 
-      if (response.ok) {
+      if (response.status === 200) {
         setSubmitStatus({ loading: false, success: true, error: null });
         setTimeout(() => onClose(), 2000);
       } else {
-        const errorData = await response.json();
-        const detailedError = errorData.details ? `${errorData.error}: ${errorData.details}` : (errorData.error || 'Failed to send email');
-        throw new Error(detailedError);
+        throw new Error('Failed to send email');
       }
     } catch (err) {
-      clearTimeout(wakeupTimer);
-      console.error('Frontend Error during email submission:', err);
-      setSubmitStatus({ loading: false, success: false, error: err.message });
+      console.error('EmailJS Error:', err);
+      setSubmitStatus({ 
+        loading: false, 
+        success: false, 
+        error: err.text || err.message || 'Failed to send email' 
+      });
     }
   };
 
@@ -81,6 +88,7 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
 
         <form className="contact-popup-form" onSubmit={handleSubmit}>
           <div className="form-group">
+            <label className="popup-label">Name</label>
             <input
               type="text"
               name="name"
@@ -93,6 +101,7 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
           </div>
 
           <div className="form-group">
+            <label className="popup-label">Email ID</label>
             <input
               type="email"
               name="email"
@@ -105,6 +114,7 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
           </div>
 
           <div className="form-group">
+            <label className="popup-label">Contact No.</label>
             <input
               type="tel"
               name="contactNo"
@@ -117,6 +127,7 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
           </div>
 
           <div className="form-group">
+            <label className="popup-label">Message</label>
             <textarea
               name="message"
               placeholder="Type Message"
@@ -136,7 +147,6 @@ const ContactPopup = ({ isOpen, onClose, initialMessage }) => {
               {submitStatus.loading ? 'Sending...' : submitStatus.success ? 'Sent!' : 'Submit'}
             </button>
           </div>
-          {submitStatus.info && submitStatus.loading && <p className="submit-info-msg" style={{ color: '#666', fontSize: '0.8rem', textAlign: 'center', marginTop: '10px' }}>{submitStatus.info}</p>}
           {submitStatus.success && <p className="submit-success-msg">Message sent successfully!</p>}
           {submitStatus.error && <p className="submit-error-msg">{submitStatus.error}</p>}
         </form>

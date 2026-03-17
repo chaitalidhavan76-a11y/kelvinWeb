@@ -68,23 +68,22 @@ const AboutUs = () => {
           </div>
         </div>
 
-        <div className="container-custom legacy-container">
-          <div className="legacy-left">
-            <div className="extended-content-box">
-              <h2 className="extended-section-title">A Legacy Of Excellence</h2>
-              <p className="extended-text">
-                Founded in 2001 by Mr. Ajit Agrawal, Kelvin Engineers has a rich history of serving over 500 establishments. Over the years, we have faced countless challenges enabling us to develop superior capabilities fueling our hunger for excellence and driving customer satisfaction. Our commitment to excellence for straight 25 years has earned us numerous awards and recognitions in the HVAC industry.
-              </p>
-            </div>
-          </div>
-          <div className="legacy-right">
-            <div className="curved-image-wrapper">
-              <img src={img1} alt="Legacy of Excellence" className="curved-frame-img" />
-            </div>
-          </div>
-        </div>
-
         <div className="curved-decoration-bottom">
+          <div className="container-custom legacy-container">
+            <div className="legacy-left">
+              <div className="extended-content-box">
+                <h2 className="extended-section-title">A Legacy Of Excellence</h2>
+                <p className="extended-text">
+                  Founded in 2001 by Mr. Ajit Agrawal, Kelvin Engineers has a rich history of serving over 500 establishments. Over the years, we have faced countless challenges enabling us to develop superior capabilities fueling our hunger for excellence and driving customer satisfaction. Our commitment to excellence for straight 25 years has earned us numerous awards and recognitions in the HVAC industry.
+                </p>
+              </div>
+            </div>
+            <div className="legacy-right">
+              <div className="curved-image-wrapper">
+                <img src={img1} alt="Legacy of Excellence" className="curved-frame-img" />
+              </div>
+            </div>
+          </div>
           <img src={lineImg} alt="decoration" className="bottom-line-asset" />
         </div>
       </section>
