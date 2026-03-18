@@ -35,11 +35,20 @@ function App() {
           setActivePage={setActivePage} 
           openContactForm={openContactForm}
         />
-        {activePage !== 'about' && (
+        {activePage === 'home' && (
           <Hero 
             activePage={activePage} 
             openContactForm={openContactForm}
           />
+        )}
+        {activePage === 'services' && (
+          <Hero 
+            activePage={activePage} 
+            openContactForm={openContactForm}
+          />
+        )}
+        {activePage === 'about' && (
+          <AboutUs isHero={true} />
         )}
       </div>
       <main>
@@ -54,7 +63,7 @@ function App() {
         
         {activePage === 'services' && <ServiceDetails selectedServiceId={selectedServiceId} />}
         
-        {activePage === 'about' && <AboutUs />}
+        {activePage === 'about' && <AboutUs isHero={false} />}
       </main>
       <Footer setActivePage={setActivePage} openServiceDetails={openServiceDetails} />
       <ContactPopup 

@@ -8,10 +8,11 @@ import img1 from '../assets/img1.png'; // Mission image
 import img2 from '../assets/img2.png'; // Legacy image
 import lineImg from '../assets/Line.png'; // Bottom curved line
 
-const AboutUs = () => {
+const AboutUs = ({ isHero }) => {
   return (
     <>
-      <section className="about-us">
+      {(isHero === true || isHero === undefined) && (
+        <section className="about-us">
         <div className="container-custom about-container">
           <div className="about-left">
             <div className="about-grid-mockup">
@@ -39,7 +40,9 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+      )}
 
+      {(isHero === false || isHero === undefined) && (
       <section className="about-extended">
         <div className="container-custom mission-container">
           <div className="mission-left">
@@ -87,6 +90,7 @@ const AboutUs = () => {
           <img src={lineImg} alt="decoration" className="bottom-line-asset" />
         </div>
       </section>
+      )}
     </>
   );
 };
