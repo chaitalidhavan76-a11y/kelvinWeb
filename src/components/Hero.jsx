@@ -4,7 +4,7 @@ import principalPhoto from '../assets/photo.png';
 
 const Hero = ({ activePage, openContactForm }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  
+
   useEffect(() => {
     setSearchQuery('');
   }, [activePage]);
@@ -27,12 +27,12 @@ const Hero = ({ activePage, openContactForm }) => {
               and data-driven maintenance. We treat your HVAC<br />
               system as a precision instrument.
             </p>
-            
+
             <div className={`search-container ${activePage === 'services' ? 'services-search-desktop' : ''}`}>
               <div className="search-box">
-                <input 
-                  type="text" 
-                  placeholder="How can we help you?" 
+                <input
+                  type="text"
+                  placeholder="How can we help you?"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
@@ -47,7 +47,7 @@ const Hero = ({ activePage, openContactForm }) => {
                 <div className="feature-col">
                   <h3 className="feature-title">Installation</h3>
                   <p className="feature-desc">
-                    Installation is a major part of the system it includes best quality , cost effective & safe effective manner
+                    Installation is a critical part of the system, executed with a focus on quality, cost-efficiency, and safety
                   </p>
                 </div>
                 <div className="feature-col">
@@ -76,9 +76,9 @@ const Hero = ({ activePage, openContactForm }) => {
           <div className="container-custom">
             <div className="search-container">
               <div className="search-box">
-                <input 
-                  type="text" 
-                  placeholder="How can we help you?" 
+                <input
+                  type="text"
+                  placeholder="How can we help you?"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />

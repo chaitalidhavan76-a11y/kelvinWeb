@@ -91,7 +91,7 @@ const ServiceDetails = ({ selectedServiceId }) => {
           <p className="detail-meta">We prevent downtime, reduce risk, and keep critical systems running smoothly.</p>
           <div className="main-quote-container">
             <h2 className="main-quote">
-              “Installation is a critical part of the system, executed with a focus on quality, cost-efficiency, and safety”
+              “35+ years of proven expertise providing best-in-class HVAC services with minimal downtime”
             </h2>
             <div className="plus-icon-box">
               <PiStarFourFill />
