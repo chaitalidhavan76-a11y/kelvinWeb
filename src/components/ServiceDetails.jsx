@@ -38,7 +38,7 @@ const ServiceDetails = ({ selectedServiceId }) => {
     },
     {
       id: 2,
-      icon: <img src={icon} alt="VRF Icon" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />,
+      icon: <img src={icon} alt="VRF Icon" style={{ width: '50%', height: '100%', objectFit: 'contain' }} />,
       title: "Variable Refrigerant Flow",
       subtitle: "Ensuring Optimal energy efficiency",
       description: "We ensure energy efficiency and multi-zone temperature control by using Variable Refrigerant Flow (VRF) machines at appropriate locations. Our installation services maintains the optimal balance between best design standards and the client specifications. We follow design standard to ensure our systems gives the best output in Indian standards,covering all metrics such as performance, capacity, Energy Efficiency Ratio (EER) and multi-zone efficiency. Along with this, we also source our VRF ensuring that it follows standards set for refrigerant piping and integration with fire systems",
