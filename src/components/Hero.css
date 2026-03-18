@@ -19,7 +19,7 @@
 
 .hero-text-content {
   flex: 1;
-  max-width: 600px;
+  max-width: 601px;
 }
 
 .hero-image-content {
@@ -294,12 +294,14 @@
   }
 
   .hero-title {
-    font-size: 36px; /* Reduced from 42px */
+    font-size: 36px;
+    /* Reduced from 42px */
     margin-bottom: 15px;
     line-height: 1.1;
   }
 
-  .title-top, .title-bottom {
+  .title-top,
+  .title-bottom {
     font-size: 36px;
   }
 

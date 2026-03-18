@@ -1,6 +1,6 @@
 import React from 'react';
 import './Services.css';
-import { HiPresentationChartLine, HiOutlineSquare3Stack3D } from 'react-icons/hi2';
+import { HiPresentationChartLine } from 'react-icons/hi2';
 import { IoDocumentText } from "react-icons/io5";
 import { PiFireExtinguisherFill } from "react-icons/pi";
 import { BiSolidPackage } from "react-icons/bi";

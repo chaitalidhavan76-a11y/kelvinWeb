@@ -13,10 +13,10 @@ const Partners = () => {
     { name: 'Burger King', logo: burgerKing, class: 'burger-king', text: 'Completed 250 stores\nin a partnership\nspanning more than a\ndecade' },
     { name: 'Croma', logo: croma, class: 'croma', text: 'Completed Croma\nstores in Delhi, Punjab,\nHaryana, MP and UP' },
     { name: 'McDonalds', logo: mcdonalds, class: 'mcdonalds', text: 'Completed 10+ stores\nin a single year' },
-    { name: 'ABP News', logo: abp, class: 'abp', text: 'Completed the\nConnaught Place and\nNoida Offices' },
-    { name: 'The Tivoli', logo: tivoli, class: 'tivoli', text: 'Completed the\nchallenging Delhi\nProject succesfully' },
-    { name: 'The Telegraph', logo: telegraph, class: 'telegraph', text: 'Leading news source\nserving the region\nfor decades' },
-    { name: 'Westside', logo: westside, class: 'westside', text: 'Premium retail stores\nacross major cities\nin India' }
+    { name: 'ABP News', logo: abp, class: 'abp', text: 'Completed the\nchallenging Delhi\nProject succesfully' },
+    { name: 'The Tivoli', logo: tivoli, class: 'tivoli', text: 'Completed the\nConnaught Place and\nNoida Offices' },
+    { name: 'The Telegraph', logo: telegraph, class: 'telegraph', text: 'Completed the Noida\nOffice which serves\nwhole North India' },
+    { name: 'Westside', logo: westside, class: 'westside', text: 'Completed the store\nin South Extension,\nDelhi in 2014' }
   ];
 
   return (
