@@ -28,11 +28,11 @@ const Footer = ({ setActivePage, openServiceDetails }) => {
           {/* Column 1: Logo & Scroll Arrow */}
           <div className="footer-col col-1">
             <div className="footer-logo-container">
-              <img 
-                src={logoImg} 
-                alt="Kelvin Engineers" 
-                className="footer-brand-logo" 
-                onClick={() => handleNavClick('home', { preventDefault: () => {} })} 
+              <img
+                src={logoImg}
+                alt="Kelvin Engineers"
+                className="footer-brand-logo"
+                onClick={() => handleNavClick('home', { preventDefault: () => { } })}
               />
             </div>
             <div className="footer-action-container">
@@ -60,7 +60,7 @@ const Footer = ({ setActivePage, openServiceDetails }) => {
               <span className="contact-label-gray">Contact us</span>
               <div className="contact-numbers">
                 <p>9810188126, 9718057230</p>
-                <p>011-27351701 / 45101800</p>
+                <p>011-45101800</p>
               </div>
               <div className="contact-emails">
                 <p>kelvinengineers@gmail.com</p>
@@ -78,8 +78,8 @@ const Footer = ({ setActivePage, openServiceDetails }) => {
             </nav>
             <div className="footer-info-block footer-address">
               <p className="address-text-footer">
-                Aggarwal tower, H-6/104, Netaji Subhash Place,<br />
-                Pitampura, Delhi 110034
+                Aggarwal tower, H-6/104, Netaji Subhash Place,
+                Pitampura,<br /> Delhi 110034
               </p>
             </div>
           </div>

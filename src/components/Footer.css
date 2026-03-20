@@ -57,7 +57,8 @@
 
 /* NAV */
 .footer-nav-col {
-  height: 110px; /* Vertical alignment for row 1 links */
+  height: 110px;
+  /* Vertical alignment for row 1 links */
   display: flex;
   align-items: flex-start;
 }
@@ -99,6 +100,10 @@
   font-size: 16px;
   color: #dcdcdc;
   margin-bottom: 7px;
+}
+
+.contact-emails {
+  margin-top: 30px;
 }
 
 .address-text-footer {
@@ -169,9 +174,23 @@
     margin: 0 !important;
   }
 
-  .col-2 .footer-nav-col { grid-column: 1 / span 2; padding-left: 0; justify-content: flex-start; }
-  .col-3 .footer-nav-col { grid-column: 1 / span 2; padding-left: 0; justify-content: center; }
-  .col-4 .footer-nav-col { grid-column: 1 / span 2; padding-left: 0; justify-content: flex-end; }
+  .col-2 .footer-nav-col {
+    grid-column: 1 / span 2;
+    padding-left: 0;
+    justify-content: flex-start;
+  }
+
+  .col-3 .footer-nav-col {
+    grid-column: 1 / span 2;
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .col-4 .footer-nav-col {
+    grid-column: 1 / span 2;
+    padding-left: 0;
+    justify-content: flex-end;
+  }
 
   .footer-nav-link {
     font-size: 18px;
@@ -217,8 +236,15 @@
     margin-bottom: 15px;
   }
 
-  .contact-numbers p { font-size: 16px; margin-bottom: 6px; }
-  .contact-emails p { font-size: 14px; margin-bottom: 4px; }
+  .contact-numbers p {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .contact-emails p {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
 
   .address-text-footer {
     font-size: 14px;
